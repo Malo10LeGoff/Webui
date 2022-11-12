@@ -1,14 +1,18 @@
-import './App.css';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import SpaIcon from '@mui/icons-material/Spa';
+import "./App.css";
 import Header from "./Header";
 import Homepage from "./Homepage";
+import GCPResources from "./GCPResources";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-        <Header></Header>
-        <Homepage></Homepage>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/gcp_resources" element={<GCPResources />} />
+          <Route path="/" element={<Homepage />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

@@ -1,13 +1,16 @@
-.homepage{
+.homepage {
 }
 
-.gcp{
-    margin:25% 45%;
-    width:300px;
-    height:50px;
-    font-size:large;
-    border: 1rem solid;
-    display:flex;
-    align-items:center;
-    padding-left:70px;
+.gcp {
+  font-size: large;
+  display: flex;
+  align-items: center;
+  margin: 25% 45%;
+  font-size: large;
+}
+
+.gcp_button {
+  background-color: navy;
+  font-weight: bold;
+  color: white;
 }
