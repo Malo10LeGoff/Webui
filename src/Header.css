@@ -1,0 +1,38 @@
+.header {
+    height: 60px;
+    display: flex;
+    align-items:center;
+    background-color:#131921;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header_logo_image{
+    display: flex;
+    align-items:center;
+    margin: 0 25px;
+    color:white;
+}
+
+.account_image{
+    display: flex;
+    margin: 0 25px;
+    float:right;
+    margin-left: auto;
+    color:white;
+}
+
+.header_account{
+    display:flex;
+    flex-direction: column;
+    margin-right:25px;
+}
+
+.span_account{
+    color:white;
+}
+
+.span_sign_in{
+    color:white;
+}
