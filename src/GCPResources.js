@@ -8,7 +8,7 @@ function GCPResources() {
     fetch("http://localhost:8080")
       .then((data) => {
         console.log(data.json());
-        setPosts(data);
+        setPosts(data.json()); // Does fetch automatically convert to JSON ?
       })
       .catch((err) => {
         console.log(err.message);
