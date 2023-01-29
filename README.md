@@ -1,3 +1,24 @@
+# Spin up the postgres instance
+
+docker-compose -f docker-compose.yaml up
+
+docker exec -it webui_db_1 /bin/bash
+su postgres
+psql
+\c postgres
+\dt
+CREATE TABLE users (id serial PRIMARY KEY, user_name VARCHAR (255) NOT NULL, company_name VARCHAR (255) NOT NULL, email VARCHAR (255) NOT NULL);
+\dt to check if the table was created correctly
+TABLE users;
+INSERT INTO users(id, user_name, company_name, email) VALUES (1, 'thalis', 'datadog', 'mlg@gmail.com');
+SELECT \* FROM "users";
+
+If you exit the continer, stop it and restart it, the data will be persisted. But what if you execute docker system prune -a ? It's still there if you recconect. As long as you do not delete the postgres-data file, you will have persisted the data you upserted in your table
+
+# If you want to connect to the DB :
+
+docker exec -it webui_db_1 /bin/bash
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

@@ -1,0 +1,47 @@
+version: "3.8"
+services:
+  ui:
+    build: /Users/malo.legoff/projects/webui/webui
+    container_name: ui
+    stdin_open: true
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+      - user-service
+    networks:
+      - appnetwork
+    volumes:
+      - ./webui:/usr/src/app/webui
+      - /usr/src/app/webui/node_modules
+  user-service:
+    build: /Users/malo.legoff/projects/webui/user-service
+    container_name: user-service
+    ports:
+      - "5000:5000"
+    restart: always
+    depends_on:
+      - db
+    networks:
+      - appnetwork
+  db:
+    image: postgres:14.1-alpine
+    container_name: db
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=users
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data # allows to persist data after the container is down
+    networks:
+      - appnetwork
+volumes:
+  db:
+    name: "postgres-data"
+    driver: local
+networks:
+  appnetwork:
+    driver: bridge
